@@ -45,3 +45,20 @@ Esse projeto tem suporte ao Server Side Rendering, basta rodar o comando `yarn s
 
 ### Storage
 A aplicação não consome endpoints, existe um pattern DAO que cuida dos acessos ao localStorage(escolhido como sistema de armazenmento do desafio).
+
+### Bônus
+Desenvolvi um mini CLI para rodar esse projeto mais rapidamente.
+Este cli é dependente de Git e Node apenas.
+Com 2 comandos, você já terá o projeto rodando sozinho(poderia ter criado um Dockerfile mas eu gosto mais de Javascript :))
+
+Basta fazer a instalação global do pacote [search-users](https://www.npmjs.com/package/search-users). 
+Você precisará de permissão de administrador.
+
+Instale o pacote em sua máquina com `sudo npm install search-users -g`.
+Após sucesso, rode o comando `search-users -i`.
+
+O que é feito com esse comando ?
+
+1 - Clonamos o projeto numa pasta temporária
+2 - Instalamos as depedências
+3 - Levantamos o servidor de desenvolvimento.
