@@ -1,0 +1,10 @@
+<header class="user" *ngIf="(user$ | async) as user">
+  <span class="user__login">
+    <mat-icon>person</mat-icon>
+    {{ user.login }}
+    <span class="user__profile">&nbsp;({{ user.profile }})</span>
+  </span>
+  <app-button-with-icon icon="exit_to_app" (click)="click()">
+    logout
+  </app-button-with-icon>
+</header>

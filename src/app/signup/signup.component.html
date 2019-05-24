@@ -1,0 +1,36 @@
+<form [formGroup]="signupForm" (submit)="createUser()">
+    <app-input isInvalid="signupForm.get('name').errors.minlength">
+      <input matInput placeholder="Nome" formControlName="name" type="text">
+      <span>Nome deve possuir <strong>mais de 4 caracteres</strong></span>
+    </app-input>
+
+    <app-input isInvalid="signupForm.get('cpf').errors.pattern">
+      <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00" type="text">
+      <span>CPF <strong>inválido</strong></span>
+    </app-input>
+
+    <app-input isInvalid="signupForm.get('login').errors?.loginTaken">
+      <input matInput placeholder="Login" formControlName="login" type="text">
+      <span>Este login já existe. <strong>Escolha outro.</strong></span>
+    </app-input>
+
+    <app-input isInvalid="signupForm.get('password').errors.minlength">
+      <input matInput placeholder="senha" formControlName="password" type="password">
+      <span>Senha <strong>deve possuir mais de 7 caracteres</strong></span>
+    </app-input>
+
+    <app-input isInvalid="signupForm.get('email').errors.email">
+      <input matInput placeholder="email" formControlName="email" type="email">
+      <span>E-mail <strong>inválido</strong></span>
+    </app-input>
+
+    <mat-radio-group aria-label="Selecione um perfil" formControlName="profile">
+      <strong class="profile">Selecione um perfil</strong>
+      <mat-radio-button value="admin">ADMINISTRADOR</mat-radio-button>
+      <mat-radio-button value="user">USUARIO</mat-radio-button>
+    </mat-radio-group>
+
+    <app-button type="submit" [disabled]="signupForm.invalid || signupForm.pending">
+      CADASTRAR
+    </app-button>
+  </form>

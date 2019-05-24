@@ -1,0 +1,18 @@
+.user {
+  max-width: 600px;
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &__login {
+    display: inline-flex;
+    align-items: inherit;
+    margin-right: 10px;
+  }
+
+  &__profile {
+    font-size: 0.8em;
+    font-weight: lighter;
+  }
+}

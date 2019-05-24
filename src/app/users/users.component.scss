@@ -1,0 +1,36 @@
+.bad-text {
+  color: #cc190a;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.user-name {
+  margin-top: 0;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.wrapper { 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.users-wrapper {
+  margin-bottom: 80px;
+}
+
+.admin-control-buttons {
+  margin: 15px 0 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  max-width: 175px;
+
+  @media screen and (min-width: 495px) {
+    margin: 0;
+  }
+ }
+
+.description { margin: 5px 0; }
+

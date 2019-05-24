@@ -1,0 +1,52 @@
+<div [@modal] *ngIf="visible" class="modal">
+  <h2>Edite os dados do usuário {{ userToEdit.name }}</h2>
+  <form [formGroup]="editForm">
+    <app-input isInvalid="editForm.get('name').errors.minlength">
+      <input matInput type="text" placeholder="Nome" formControlName="name">
+      <span>Nome deve possuir <strong>mais de 4 caracteres</strong></span>
+    </app-input>
+
+    <app-input isInvalid="editForm.get('cpf').errors.pattern">
+      <input matInput placeholder="CPF" formControlName="cpf" mask="000.000.000-00">
+      <span>CPF <strong>inválido</strong></span>
+    </app-input>
+
+    <app-input isInvalid="editForm.get('login').errors?.loginTaken">
+      <input matInput placeholder="Login" formControlName="login">
+      <span>Este login já existe. <strong>Escolha outro.</strong></span>
+    </app-input>
+
+    <app-input isInvalid="editForm.get('password').errors.minlength">
+      <input matInput placeholder="senha" formControlName="password" type="password">
+      <span>Senha <strong>deve possuir mais de 7 caracteres</strong></span>
+    </app-input>
+
+    <app-input isInvalid="false">
+      <input matInput placeholder="email" formControlName="email" type="email">
+      <span>E-mail <strong>inválido</strong></span>
+    </app-input>
+
+    <mat-radio-group aria-label="Selecione um perfil" formControlName="profile">
+      <strong class="profile">Selecione um perfil</strong>
+      <mat-radio-button value="admin">ADMINISTRADOR</mat-radio-button>
+      <mat-radio-button value="user">USUARIO</mat-radio-button>
+    </mat-radio-group>
+
+    <app-button
+      type="button"
+      [disabled]="editForm.invalid || editForm.pending"
+      (click)="saveUser()"
+    >
+      SALVAR
+    </app-button>
+  </form>
+  <app-button-with-icon
+    (click)="close()"
+    icon="close"
+    class="modal__close-btn"
+    *ngIf="closable"
+  >
+    Fechar
+  </app-button-with-icon>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>

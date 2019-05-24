@@ -1,0 +1,14 @@
+<form [formGroup]="signinForm" (submit)="onSubmit()">
+
+  <app-input isInvalid="signinForm.get('login').errors?.required">
+    <input matInput placeholder="Login" formControlName="login" [errorStateMatcher]="matcher">
+    <span>Campo <strong>obrigatório</strong></span>
+  </app-input>
+
+  <app-input isInvalid="signinForm.get('password').errors">
+    <input matInput placeholder="Senha" type='password' formControlName="password" [errorStateMatcher]="matcher">
+    <span>Campo <strong>deve ter mais de 7 caracteres</strong></span>
+  </app-input>
+
+  <app-button type="submit" [disabled]="signinForm.invalid">Logar</app-button>
+</form>

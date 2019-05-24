@@ -1,0 +1,7 @@
+
+<mat-form-field class="example-full-width">
+  <ng-content select="input"></ng-content>
+  <mat-error *ngIf="isInvalid">
+    <ng-content select="span"></ng-content>
+  </mat-error>
+</mat-form-field>

@@ -1,0 +1,32 @@
+<div *ngIf="!users.length; else showUsers" class="bad-text">
+  <p><strong>Ops!</strong> Infelizmente não há usuários cadastrados no momento.</p> 
+</div>
+
+<ng-template #showUsers>
+  <div class="users-wrapper">
+    <app-cards *ngFor="let user of users">
+      <div class="wrapper">
+        <h2 class="user-name">{{ user.name }}</h2>
+        <div class="admin-control-buttons" appOnlyAdmin>
+          <app-button-with-icon (click)="toggleModalOnEditUser(user)" icon="edit">editar</app-button-with-icon>
+          <app-button-with-icon (click)="removeUser(user.id)" icon="delete">excluir</app-button-with-icon>
+        </div>
+      </div>
+      <p class="description"><strong>login:</strong> {{ user.login }}</p>
+      <p class="description"><strong>email:</strong> {{ user.email }}</p>
+      <p class="description"><strong>perfil:</strong> {{ user.profile }}</p>
+    </app-cards>
+    <app-edit-user-modal
+      [(visible)]="showModal"
+      [userToEdit]="userToEdit"
+      (saveEditedUser)="saveEditedUser($event)"
+    >
+    </app-edit-user-modal>
+  </div>
+</ng-template>
+
+<div>
+  <app-anchor type="button" appOnlyAdmin routerLink="/cadastrar">
+    CADASTRAR USUÁRIOS
+  </app-anchor>
+</div>
