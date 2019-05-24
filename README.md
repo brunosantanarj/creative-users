@@ -43,6 +43,10 @@ Esse projeto tem suporte ao Server Side Rendering, basta rodar o comando `yarn s
 * `cadastrar`- protegida(se é admin e usuário logado), referente ao cadastro de usuários
 * `usuarios` - protegida(se usuário logado), refere a visualização do usuário, exclusão e edição(se for admin)
 
+### Informação
+No login, os logins 'bruno' e 'admin' sempre terão perfil de admin e acesso total às features.
+Só existe validação de campo. Então qualquer coisa que não seja vazio e respeite as validações(número de caracteres, email, validadores assíncronos, etc) passarão. Não há bloqueios no fluxo da aplicação a não ser por perfil de usuário.
+
 ### Storage
 A aplicação não consome endpoints, existe um pattern DAO que cuida dos acessos ao localStorage(escolhido como sistema de armazenmento do desafio).
 
