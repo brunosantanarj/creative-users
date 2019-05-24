@@ -1,27 +1,47 @@
 # SearchUsers
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Esse projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 7.3.9.
 
-## Development server
+## Dependências
+Rode `yarn install` ou `npm install` para instalar as depêndencias do projeto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Servidor de desenvolvimento
 
-## Code scaffolding
+Rode `yarn dev` ou `npm run dev` para levantar o servidor de desenvolvimento. Automaticamente será aberta uma aba do navegador com o endereço `http://localhost:4200/`. 
+A aplicação será recarregada automaticamente, se você mudar algum arquivo(hot-reloading).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Linter
+
+Foram adicionadas regras extras de lint como:
+* no-irregular-whitespace
+* ordered-imports
+* trailing-comma
+
+Rode `yarn lint` ou `npm run lint`, para fazer a verificação.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Rode `yarn build` ou `npm run build` para buildar o projeto.
+Os artefatos do build serão salvos na pasta `dist/`. Por padrão esses comandos já rodam com a variável de ambiente `production`.
 
-## Running unit tests
+## Testes unitários
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Rode `yarn test` ou `npm run test` para executar os testes unitários através do [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+Testes custom encontram em
+* auth.service.spec.ts
+* fields.creator.spec.ts
+* userLogin.factory.spec
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Server Side Rendering
 
-## Further help
+Esse projeto tem suporte ao Server Side Rendering, basta rodar o comando `yarn ssr` ou `npm run ssr`. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+### Rotas
+* `/` - progida(se não estiver logada), referente ao login
+* `cadastrar`- protegida(se é admin e usuário logado), referente ao cadastro de usuários
+* `usuarios` - protegida(se usuário logado), refere a visualização do usuário, exclusão e edição(se for admin)
+
+### Storage
+A aplicação não consome endpoints, existe um pattern DAO que cuida dos acessos ao localStorage(escolhido como sistema de armazenmento do desafio).
