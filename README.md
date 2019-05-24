@@ -59,6 +59,6 @@ Após sucesso, rode o comando `search-users -i`.
 
 O que é feito com esse comando ?
 
-1 - Clonamos o projeto numa pasta temporária
-2 - Instalamos as depedências
-3 - Levantamos o servidor de desenvolvimento.
+- Clonamos o projeto numa pasta temporária
+- Instalamos as depedências
+- Levantamos o servidor de desenvolvimento.
